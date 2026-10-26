@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - AccessCalc</title>
+    <meta name="description" content="Privacy Policy for AccessCalc - An advanced, fully accessible multi-mode calculator for Windows. Learn how your privacy, calculations, and data are protected.">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --surface-color: #161b22;
+            --surface-card: #21262d;
+            --border-color: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-hover: #79c0ff;
+            --accent-bg: rgba(56, 139, 253, 0.12);
+            --kbd-bg: #2d333b;
+            --kbd-border: #444c56;
+            --kbd-text: #adbac7;
+            --tag-bg: #1f6feb;
+            --tag-text: #ffffff;
+            --success-color: #3fb950;
+            --warning-color: #d29922;
+            --focus-outline: #58a6ff;
+            --table-stripe: #1c2128;
+            --code-bg: #1e2228;
+            --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
+            --surface-color: #ffffff;
+            --surface-card: #f6f8fa;
+            --border-color: #d0d7de;
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --accent-color: #0969da;
+            --accent-hover: #0550ae;
+            --accent-bg: rgba(9, 105, 218, 0.08);
+            --kbd-bg: #eff1f3;
+            --kbd-border: #afb8c1;
+            --kbd-text: #24292f;
+            --tag-bg: #0969da;
+            --tag-text: #ffffff;
+            --success-color: #1a7f37;
+            --warning-color: #9a6700;
+            --focus-outline: #0969da;
+            --table-stripe: #f6f8fa;
+            --code-bg: #eaeef2;
+            --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="high-contrast"] {
+            --bg-color: #000000;
+            --surface-color: #000000;
+            --surface-card: #121212;
+            --border-color: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #00ffff;
+            --accent-color: #ffff00;
+            --accent-hover: #ffff80;
+            --accent-bg: #222200;
+            --kbd-bg: #000000;
+            --kbd-border: #ffffff;
+            --kbd-text: #ffff00;
+            --tag-bg: #ffff00;
+            --tag-text: #000000;
+            --success-color: #00ff00;
+            --warning-color: #ffff00;
+            --focus-outline: #ffff00;
+            --table-stripe: #111111;
+            --code-bg: #111111;
+            --card-shadow: 0 0 0 2px #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Variable", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.65;
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        /* Focus styles for keyboard accessibility */
+        :focus-visible {
+            outline: 3px solid var(--focus-outline) !important;
+            outline-offset: 3px !important;
+        }
+
+        /* Skip Navigation Link */
+        .skip-link {
+            position: absolute;
+            top: -60px;
+            left: 16px;
+            background: var(--accent-color);
+            color: #ffffff;
+            padding: 10px 18px;
+            z-index: 1000;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        /* Header Navigation */
+        header.app-header {
+            position: sticky;
+            top: 0;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-brand svg {
+            fill: var(--accent-color);
+        }
+
+        .header-brand h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .badge {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .theme-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 4px;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .theme-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-btn.active {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+
+        [data-theme="high-contrast"] .theme-btn.active {
+            color: #000000;
+        }
+
+        /* Container Layout */
+        .main-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 36px 24px 64px 24px;
+        }
+
+        /* Hero / Header Card */
+        .hero-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 36px;
+            margin-bottom: 32px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .hero-card h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .meta-value {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Highlights / Key Guarantees Box */
+        .highlights-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .highlight-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            border-top: 4px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .highlight-card.secure {
+            border-top-color: var(--success-color);
+        }
+
+        .highlight-card.local {
+            border-top-color: #a371f7;
+        }
+
+        .highlight-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .highlight-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .highlight-card p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Navigation Table of Contents */
+        nav.toc {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px 28px;
+            margin-bottom: 36px;
+        }
+
+        nav.toc h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav.toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 8px 16px;
+        }
+
+        nav.toc a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 14.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.15s, transform 0.15s;
+        }
+
+        nav.toc a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Policy Sections */
+        .policy-section {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .policy-section h2 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .policy-section h2 .sec-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--accent-bg);
+            color: var(--accent-color);
+            font-size: 13.5px;
+            font-weight: bold;
+        }
+
+        .policy-section h3 {
+            font-size: 16.5px;
+            font-weight: 600;
+            margin: 18px 0 8px 0;
+            color: var(--text-primary);
+        }
+
+        .policy-section p {
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .policy-section ul {
+            margin-left: 24px;
+            margin-bottom: 14px;
+        }
+
+        .policy-section li {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Callout / Alert Boxes */
+        .callout {
+            border-left: 4px solid var(--accent-color);
+            background: var(--accent-bg);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+
+        .callout.success {
+            border-left-color: var(--success-color);
+            background: rgba(63, 185, 80, 0.1);
+        }
+
+        .callout.warning {
+            border-left-color: var(--warning-color);
+            background: rgba(210, 153, 34, 0.1);
+        }
+
+        .callout p {
+            margin: 0;
+            font-size: 14.5px;
+        }
+
+        /* Data Matrix Table */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 18px 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        table.data-table th,
+        table.data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table.data-table th {
+            background: var(--surface-card);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        table.data-table tr:nth-child(even) {
+            background: var(--table-stripe);
+        }
+
+        code {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer.app-footer {
+            border-top: 1px solid var(--border-color);
+            background: var(--surface-color);
+            padding: 28px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        footer.app-footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer.app-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print Styles */
+        @media print {
+            header.app-header, .theme-switcher, .skip-link, nav.toc {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+            }
+            .hero-card, .policy-section, .highlight-card {
+                border: 1px solid #cccccc !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive Mobile Styles */
+        @media (max-width: 768px) {
+            header.app-header {
+                padding: 12px 16px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-card {
+                padding: 22px;
+            }
+            .policy-section {
+                padding: 20px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Accessible Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+    <!-- Top Navigation Header -->
+    <header class="app-header" role="banner">
+        <div class="header-brand">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1z"/>
+            </svg>
+            <h1>AccessCalc</h1>
+            <span class="badge">Privacy Policy</span>
+        </div>
+
+        <!-- Accessible Theme Selection -->
+        <div class="theme-switcher" role="group" aria-label="Visual Display Theme">
+            <button class="theme-btn active" id="theme-dark-btn" onclick="setTheme('dark')" aria-pressed="true">Dark</button>
+            <button class="theme-btn" id="theme-light-btn" onclick="setTheme('light')" aria-pressed="false">Light</button>
+            <button class="theme-btn" id="theme-hc-btn" onclick="setTheme('high-contrast')" aria-pressed="false">High Contrast</button>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-container" role="main">
+
+        <!-- Hero Document Header Card -->
+        <div class="hero-card">
+            <h2>AccessCalc Privacy Policy</h2>
+            <p class="hero-subtitle">Comprehensive transparency regarding user privacy, data processing, and accessibility services in the AccessCalc desktop application.</p>
+            
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <span class="meta-label">Effective Date</span>
+                    <span class="meta-value">October 21, 2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Application Version</span>
+                    <span class="meta-value">1.0 (1.0.0.0)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Developer</span>
+                    <span class="meta-value">Bibek Sharma</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Country of Origin</span>
+                    <span class="meta-value">Nepal 🇳🇵</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Summary Highlights -->
+        <div class="highlights-container">
+            <div class="highlight-card secure">
+                <span class="highlight-icon">🛡️</span>
+                <h3>Zero Telemetry</h3>
+                <p>AccessCalc contains no tracking cookies, analytics frameworks, advertising trackers, or background telemetry.</p>
+            </div>
+            <div class="highlight-card local">
+                <span class="highlight-icon">💻</span>
+                <h3>Local Processing</h3>
+                <p>All calculations, mathematical operations, equation solving, and history logs operate entirely on your local computer.</p>
+            </div>
+            <div class="highlight-card">
+                <span class="highlight-icon">🔊</span>
+                <h3>Private Voice Echo</h3>
+                <p>Audible speech feedback uses native Windows offline speech synthesis. No audio is recorded, stored, or sent externally.</p>
+            </div>
+            <div class="highlight-card secure">
+                <span class="highlight-icon">🤝</span>
+                <h3>No Data Monetization</h3>
+                <p>We do not collect personal profiles, nor do we sell, rent, or share user information with advertisers or data brokers.</p>
+            </div>
+        </div>
+
+        <!-- Table of Contents Navigation -->
+        <nav class="toc" aria-label="Privacy Policy Sections">
+            <h3>📑 Document Table of Contents</h3>
+            <ul>
+                <li><a href="#section-1">1. Introduction &amp; Core Philosophy</a></li>
+                <li><a href="#section-2">2. Information We Do Not Collect</a></li>
+                <li><a href="#section-3">3. Local Data Storage &amp; Calculation History</a></li>
+                <li><a href="#section-4">4. Audio Speech &amp; Accessibility Services</a></li>
+                <li><a href="#section-5">5. Network Usage &amp; External Services</a></li>
+                <li><a href="#section-6">6. Data Matrix Overview</a></li>
+                <li><a href="#section-7">7. Third-Party Services &amp; Advertising</a></li>
+                <li><a href="#section-8">8. Data Security &amp; Retention</a></li>
+                <li><a href="#section-9">9. User Rights, Choices &amp; Control</a></li>
+                <li><a href="#section-10">10. Children's Privacy</a></li>
+                <li><a href="#section-11">11. Changes to This Policy</a></li>
+                <li><a href="#section-12">12. Developer &amp; Contact Information</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section 1 -->
+        <section id="section-1" class="policy-section">
+            <h2><span class="sec-num">1</span> Introduction &amp; Core Philosophy</h2>
+            <p><strong>AccessCalc</strong> ("the Application") is an advanced, fully accessible multi-mode calculator designed for Microsoft Windows. Engineered from the ground up by independent developer <strong>Bibek Sharma</strong> in Nepal, the application provides blind, low-vision, and all users with a robust, accessible mathematical computation platform.</p>
+            <p>Privacy is a fundamental human right. In AccessCalc, privacy is not an afterthought or an optional toggle—it is built into every architectural decision. This Privacy Policy outlines what information is processed, where it resides, and your complete rights and controls as a user.</p>
+            <div class="callout success">
+                <p><strong>Key Principle:</strong> AccessCalc operates on a strict <em>privacy-by-design</em> model. You do not need to create an account, log in, or disclose any personal identity to utilize the full capabilities of AccessCalc.</p>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="section-2" class="policy-section">
+            <h2><span class="sec-num">2</span> Information We Do Not Collect</h2>
+            <p>To ensure absolute clarity, AccessCalc <strong>does not</strong> collect, harvest, monitor, or transmit any of the following:</p>
+            <ul>
+                <li><strong>No Personal Identifiers:</strong> We do not collect names, phone numbers, home addresses, or social media accounts during ordinary usage.</li>
+                <li><strong>No User Account or Authentication Credentials:</strong> AccessCalc requires no registration, username, password, or cloud profile.</li>
+                <li><strong>No Telemetry or Usage Analytics:</strong> We do not log which modes you open, which buttons you press, how long you use the app, or your usage habits.</li>
+                <li><strong>No Device Fingerprinting:</strong> We do not collect MAC addresses, device serial numbers, BIOS identifiers, or unique advertising IDs.</li>
+                <li><strong>No Geographic Location:</strong> We do not request, access, or track your GPS coordinates, IP-based physical location, or WiFi positioning.</li>
+                <li><strong>No Mathematical Profiling:</strong> Your calculations, numbers, currency conversions, formulas, and graphing coordinates remain solely your private property and never leave your device.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section-3" class="policy-section">
+            <h2><span class="sec-num">3</span> Local Data Storage &amp; Calculation History</h2>
+            <p>AccessCalc is a locally executing Windows client application. Any persistent data generated during use is stored exclusively on your local computer:</p>
+            
+            <h3>A. Application Configuration &amp; User Preferences</h3>
+            <p>To preserve your preferred settings between sessions, AccessCalc writes a small local JSON configuration file (<code>config.json</code>). This configuration file stores:</p>
+            <ul>
+                <li>The last active calculator mode (e.g., Standard, Scientific, Programmer, Matrix).</li>
+                <li>Your preferred speech echo state (enabled or disabled).</li>
+                <li>Your chosen speech rate and voice volume preferences.</li>
+            </ul>
+            <p>This file is stored in your private Windows user profile under:</p>
+            <p><code>%LOCALAPPDATA%\Packages\BlindTechNexus.AccessCalc\LocalState\config.json</code></p>
+            <p>This data is never synchronized with external servers, cloud databases, or third parties.</p>
+
+            <h3>B. Calculation History</h3>
+            <p>AccessCalc maintains a calculation history during active sessions so you can review recent computations across all calculator modes (Standard, Scientific, Programmer, Matrix, Equations, etc.).</p>
+            <ul>
+                <li><strong>Session Retention:</strong> Up to 100 recent calculation items are kept in local memory.</li>
+                <li><strong>User Control:</strong> You can open the Calculation History flyout (<kbd>Ctrl+H</kbd>) and click <strong>"Clear All History"</strong> at any time to permanently wipe stored calculations from memory.</li>
+            </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="section-4" class="policy-section">
+            <h2><span class="sec-num">4</span> Audio Speech &amp; Accessibility Services</h2>
+            <p>AccessCalc provides comprehensive accessibility features, including full compatibility with assistive screen readers (NVDA, JAWS, Windows Narrator) and an integrated Audio Speech Feedback Echo.</p>
+            <ul>
+                <li><strong>Offline Speech Synthesis:</strong> Spoken audio feedback is generated locally on your computer via the standard Windows Speech Synthesis engine (<code>System.Speech</code> / SAPI). No internet connection is used or required to generate spoken output.</li>
+                <li><strong>No Audio Recording or Microphones:</strong> AccessCalc never accesses or activates your microphone, never records ambient audio, and never captures your voice.</li>
+                <li><strong>Screen Reader Live Regions:</strong> Keyboard announcements and live mathematical readouts are routed directly through Windows UI Automation (UIA) APIs to your active screen reader on-device.</li>
+            </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="section-5" class="policy-section">
+            <h2><span class="sec-num">5</span> Network Usage &amp; External Services</h2>
+            <p>AccessCalc requires network access exclusively for two specific, optional functions:</p>
+
+            <h3>A. Live Currency Exchange Rates</h3>
+            <p>In the Currency Converter mode, AccessCalc connects via secure HTTPS to a public financial exchange rate API to download current baseline conversion rates for world currencies.</p>
+            <ul>
+                <li><strong>Data Transmitted:</strong> Anonymous read-only HTTP GET requests for exchange rate tables.</li>
+                <li><strong>No User Identification:</strong> No personal details, account data, or conversion amounts are transmitted.</li>
+                <li><strong>Offline Resilience:</strong> If an internet connection is unavailable, AccessCalc uses built-in baseline rates and alerts the user, ensuring the app remains fully functional offline.</li>
+            </ul>
+
+            <h3>B. Send Feedback Dialog (User-Initiated)</h3>
+            <p>AccessCalc includes a voluntary "Send Feedback" dialog on the application toolbar allowing users to report bugs, suggest features, or submit feedback directly to the developer.</p>
+            <ul>
+                <li><strong>Voluntary Submission:</strong> Feedback is submitted only when you explicitly click the <em>"Send Feedback"</em> button.</li>
+                <li><strong>Submitted Data:</strong> The transmission contains solely what you enter in the form:
+                    <ul>
+                        <li>Your provided Name (required).</li>
+                        <li>Your optional Contact Email address (if you wish to receive a reply).</li>
+                        <li>Your typed Feedback message (required).</li>
+                        <li>An automated timestamp and application name identifier.</li>
+                    </ul>
+                </li>
+                <li><strong>Transmission Method:</strong> Form data is securely transmitted over TLS-encrypted HTTPS using the Telegram Bot API directly to the developer's administrative inbox.</li>
+                <li><strong>Purpose of Use:</strong> This information is utilized strictly to understand user feedback, diagnose bugs, improve AccessCalc, and reply to you if an email was provided.</li>
+            </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="section-6" class="policy-section">
+            <h2><span class="sec-num">6</span> Data Matrix Overview</h2>
+            <p>The following summary table outlines every category of data handled by AccessCalc:</p>
+            
+            <div class="table-responsive">
+                <table class="data-table" role="table" aria-label="Data categories and handling matrix">
+                    <thead>
+                        <tr>
+                            <th scope="col">Data Category</th>
+                            <th scope="col">Collected?</th>
+                            <th scope="col">Storage Location</th>
+                            <th scope="col">Transmitted Over Network?</th>
+                            <th scope="col">User Control / Erasure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Math Calculations &amp; Formulas</th>
+                            <td>No</td>
+                            <td>Local device RAM only</td>
+                            <td>Never</td>
+                            <td>Cleared on demand or app close</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Calculation History</th>
+                            <td>Temporary (session)</td>
+                            <td>Local device RAM (max 100)</td>
+                            <td>Never</td>
+                            <td>One-click "Clear All History" button</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">App Settings &amp; Preferences</th>
+                            <td>Yes (preferences)</td>
+                            <td>Local <code>config.json</code> file</td>
+                            <td>Never</td>
+                            <td>Editable via app; deletable from disk</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Audio Speech Echo</th>
+                            <td>No</td>
+                            <td>Not stored</td>
+                            <td>Never (local Windows SAPI)</td>
+                            <td>Toggle on/off via <kbd>Ctrl+S</kbd></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Currency Rate Lookups</th>
+                            <td>No</td>
+                            <td>In-memory rate cache</td>
+                            <td>Outbound read-only GET (HTTPS)</td>
+                            <td>Automatic cache expiration</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Voluntary Feedback Form</th>
+                            <td>Only upon user submit</td>
+                            <td>Developer inbox via Telegram API</td>
+                            <td>Encrypted HTTPS POST</td>
+                            <td>Delete request upon email inquiry</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Telemetry &amp; Crash Analytics</th>
+                            <td>No</td>
+                            <td>None</td>
+                            <td>Never</td>
+                            <td>Fully disabled by architecture</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="section-7" class="policy-section">
+            <h2><span class="sec-num">7</span> Third-Party Services &amp; Advertising</h2>
+            <p>AccessCalc is an independent, ad-free utility:</p>
+            <ul>
+                <li><strong>No Advertising Networks:</strong> The application contains zero advertisements, banners, pop-ups, or affiliate trackers.</li>
+                <li><strong>No Third-Party SDK Trackers:</strong> We do not integrate Facebook SDK, Google Firebase Analytics, Adjust, AppsFlyer, or any commercial profiling SDKs.</li>
+                <li><strong>No Data Sales or Commercial Transfers:</strong> We do not sell, rent, license, or barter your data to third parties under any circumstances.</li>
+            </ul>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="section-8" class="policy-section">
+            <h2><span class="sec-num">8</span> Data Security &amp; Retention</h2>
+            <p>We implement rigorous technical and operational standards to ensure the integrity of your data:</p>
+            <ul>
+                <li><strong>Transport Layer Security:</strong> All external network calls (currency exchange queries and feedback submissions) utilize modern TLS encryption (HTTPS) to safeguard data in transit against interception.</li>
+                <li><strong>Local System Isolation:</strong> Configuration files are stored within the secure, sandboxed Windows application data directory isolated to your Windows user account.</li>
+                <li><strong>Retention Period:</strong> In-memory calculation history is ephemeral and automatically discarded when you exit the application or invoke the clear command. Feedback messages received by the developer are retained only as long as necessary to address the suggestion or fix the reported defect, after which they are securely archived or purged.</li>
+            </ul>
+        </section>
+
+        <!-- Section 9 -->
+        <section id="section-9" class="policy-section">
+            <h2><span class="sec-num">9</span> User Rights, Choices &amp; Control</h2>
+            <p>You have full autonomy over your data while utilizing AccessCalc:</p>
+            <ul>
+                <li><strong>Clearing Calculation History:</strong> Open the Calculation History flyout (<kbd>Ctrl+H</kbd>) and activate the <em>Clear All History</em> button.</li>
+                <li><strong>Resetting Application Settings:</strong> You can reset preferences at any time by deleting the local <code>config.json</code> file located in your application data directory. AccessCalc will automatically regenerate default preferences upon the next launch.</li>
+                <li><strong>Disabling Audio Echo:</strong> Toggle audible voice speech feedback off or on anytime using the toolbar toggle or shortcut <kbd>Ctrl+S</kbd>.</li>
+                <li><strong>Anonymous Feedback:</strong> When submitting feedback, you are not required to provide a real email address or real name. Feedback can be submitted with pseudonymous details.</li>
+                <li><strong>Data Deletion Requests:</strong> If you previously submitted feedback containing personal contact details and wish to have that record deleted, contact the developer through the in-app feedback channel or via email, and the record will be erased within 30 days.</li>
+            </ul>
+        </section>
+
+        <!-- Section 10 -->
+        <section id="section-10" class="policy-section">
+            <h2><span class="sec-num">10</span> Children's Privacy</h2>
+            <p>AccessCalc is a general-audience educational and computational tool suitable for students, educators, professionals, and users of all ages. The application does not intentionally solicit, collect, or store personal information from children under the age of 13 (or under 16 where required by local jurisdiction, including GDPR guidelines). If a parent or guardian discovers that a child has submitted feedback containing personal data, they may contact the developer for prompt deletion.</p>
+        </section>
+
+        <!-- Section 11 -->
+        <section id="section-11" class="policy-section">
+            <h2><span class="sec-num">11</span> Changes to This Privacy Policy</h2>
+            <p>We may periodically update this Privacy Policy to reflect enhancements, new application modes, or applicable legal standards. Any revisions will be accompanied by an updated "Effective Date" at the top of this document. Continued use of the application constitutes acceptance of any updated privacy terms.</p>
+        </section>
+
+        <!-- Section 12 -->
+        <section id="section-12" class="policy-section">
+            <h2><span class="sec-num">12</span> Developer &amp; Contact Information</h2>
+            <p>If you have any questions, inquiries, suggestions, or concerns regarding this Privacy Policy or the data practices of AccessCalc, please reach out directly:</p>
+            
+            <div class="callout">
+                <p><strong>Lead Developer:</strong> Bibek Sharma</p>
+                <p><strong>Project:</strong> AccessCalc (Advanced Accessible Calculator)</p>
+                <p><strong>Location:</strong> Kathmandu, Nepal 🇳🇵</p>
+                <p><strong>In-App Contact:</strong> Click the <strong>Feedback</strong> button on the application toolbar</p>
+            </div>
+            <p>Thank you for trusting AccessCalc as your accessible calculation companion.</p>
+        </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="app-footer" role="contentinfo">
+        <p>&copy; 2026 AccessCalc. Engineered with passion and accessibility in Nepal by Bibek Sharma.</p>
+        <p style="margin-top: 6px;">All rights reserved. Designed for complete screen reader accessibility and privacy.</p>
+    </footer>
+
+    <!-- Interactive Theme & Accessibility Script -->
+    <script>
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            try {
+                localStorage.setItem('accesscalc-theme', theme);
+            } catch (e) {}
+
+            // Update button active and aria states
+            const themes = ['dark', 'light', 'high-contrast'];
+            themes.forEach(t => {
+                const btn = document.getElementById('theme-' + (t === 'high-contrast' ? 'hc' : t) + '-btn');
+                if (btn) {
+                    const isActive = t === theme;
+                    btn.classList.toggle('active', isActive);
+                    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                }
+            });
+        }
+
+        // Initialize saved theme or system preference
+        (function initTheme() {
+            let saved = 'dark';
+            try {
+                saved = localStorage.getItem('accesscalc-theme');
+            } catch (e) {}
+
+            if (!saved) {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                    saved = 'light';
+                } else {
+                    saved = 'dark';
+                }
+            }
+            setTheme(saved);
+        })();
+    </script>
+</body>
+</html>
